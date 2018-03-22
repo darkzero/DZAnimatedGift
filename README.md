@@ -10,6 +10,7 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+XCode
 
 ## Installation
 
@@ -20,9 +21,44 @@ it, simply add the following line to your Podfile:
 pod 'DZAnimatedGift'
 ```
 
+## Sample
+
+#### Simple
+
+Import framework
+```Swift
+import DZAnimatedGift
+```
+Add one image to screen
+```Swift
+DZAnimatedGift.addGift(image: "heart_pink", at: CGPoint(x:sender.frame.midX, y:sender.frame.midY), absolutePath: points, duration: drand48()+2.0);
+```
+or
+```Swift
+DZAnimatedGift.addGift(image: "heart_pink", at: CGPoint(x:sender.frame.midX, y:sender.frame.midY), relativePath: points, duration: drand48()+2.0);
+```
+
+About the Parameter
+```Swift
+image: String               // the image of gift
+at: CGPoint                 // start point of the animation
+absolutePath: [[CGPoint]]   // path of the animation(absolute in view)
+relativePath: [[CGPoint]]   // path of the animation(relative of the start point)
+                            // the [[CGPoint]] should be like
+                            // [[endPoint, ctrlPoint], [endPoint, ctrlPoint], ...]
+                            // or only endPoint like
+                            // [[endPoint], [endPoint], ...]
+                            // or mix
+                            // [[endPoint, ctrlPoint], [endPoint], ...]
+duration: CGFloat           // duration of the animation
+```
+
+#### Complex
+
 ## Author
 
 darkzero, darkzero_mk2@hotmail.com
+iOS developer, working in Tokyo
 
 ## License
 
