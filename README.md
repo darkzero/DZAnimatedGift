@@ -68,6 +68,8 @@ relativePath: [[CGPoint]]   // path of the animation(relative of the start point
 duration: CGFloat           // duration of the animation
 ```
 
+![Simple](gif/simple.gif)
+
 #### Complex
 
 ```Swift
@@ -82,6 +84,8 @@ let g = GiftObject(image: "heart_pink",
                    size: CGSize(width: width, height: width));
 queue.add(object: g);
 ```
+
+![Complex](gif/complex.gif)
 
 ## Author
 
