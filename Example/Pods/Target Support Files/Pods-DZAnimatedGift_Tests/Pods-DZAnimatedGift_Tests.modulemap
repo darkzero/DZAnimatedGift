@@ -1,0 +1,6 @@
+framework module Pods_DZAnimatedGift_Tests {
+  umbrella header "Pods-DZAnimatedGift_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

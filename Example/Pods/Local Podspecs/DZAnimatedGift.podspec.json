@@ -1,0 +1,22 @@
+{
+  "name": "DZAnimatedGift",
+  "version": "0.1.0",
+  "summary": "A short description of DZAnimatedGift.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/darkzero/DZAnimatedGift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "darkzero": "darkzero_mk2@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/darkzero/DZAnimatedGift.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "DZAnimatedGift/Classes/**/*"
+}
