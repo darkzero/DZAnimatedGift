@@ -68,6 +68,8 @@ relativePath: [[CGPoint]]   // 移动路径(相对位置)
 duration: CGFloat           // 移动动画的持续时间
 ```
 
+![Simple](gif/simple.gif)
+
 #### 复杂模式
 
 ```Swift
@@ -86,6 +88,8 @@ queue.add(object: g);
 GiftObject.size可以自由控制每一个小图片的尺寸。
 不同的QueueName动画不在一个队列，可以同屏同时出现数个动画Queue。
 可参考Sample中的Complex多点触摸版本。
+
+![Complex](gif/complex.gif)
 
 ## Author
 
