@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/DZAnimatedGift.svg?style=flat)](http://cocoapods.org/pods/DZAnimatedGift)
 [![Platform](https://img.shields.io/cocoapods/p/DZAnimatedGift.svg?style=flat)](http://cocoapods.org/pods/DZAnimatedGift)
 
+[中文版(制作中)]
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -23,19 +25,26 @@ pod 'DZAnimatedGift'
 
 ## Sample
 
-#### Simple
-
-Import framework
+#### at first, Import framework
 ```Swift
 import DZAnimatedGift
 ```
+
+#### Simple
+
 Add one image to screen
 ```Swift
-DZAnimatedGift.addGift(image: "heart_pink", at: CGPoint(x:sender.frame.midX, y:sender.frame.midY), absolutePath: points, duration: drand48()+2.0);
+DZAnimatedGift.addGift(image: "heart_pink",
+                       at: CGPoint(x:sender.frame.midX, y:sender.frame.midY),
+                       absolutePath: points,
+                       duration: drand48()+2.0);
 ```
 or
 ```Swift
-DZAnimatedGift.addGift(image: "heart_pink", at: CGPoint(x:sender.frame.midX, y:sender.frame.midY), relativePath: points, duration: drand48()+2.0);
+DZAnimatedGift.addGift(image: "heart_pink",
+                       at: CGPoint(x:sender.frame.midX, y:sender.frame.midY),
+                       relativePath: points,
+                       duration: drand48()+2.0);
 ```
 
 About the Parameter

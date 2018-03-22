@@ -17,6 +17,7 @@
 		868F1B2CB03BB02EA07A9FA1 /* Pods_DZAnimatedGift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A945A037485F02A2DA3F3DB /* Pods_DZAnimatedGift_Tests.framework */; };
 		B7683C4C2063506800A6ED67 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7683C4B2063506800A6ED67 /* ListViewController.swift */; };
 		B7683C4E206350BB00A6ED67 /* ComplexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7683C4D206350BB00A6ED67 /* ComplexViewController.swift */; };
+		B7683C502063746F00A6ED67 /* README_CN.md in Resources */ = {isa = PBXBuildFile; fileRef = B7683C4F2063746F00A6ED67 /* README_CN.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A82C9988181D9CF55F7C9A02 /* Pods_DZAnimatedGift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DZAnimatedGift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7683C4B2063506800A6ED67 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		B7683C4D206350BB00A6ED67 /* ComplexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexViewController.swift; sourceTree = "<group>"; };
+		B7683C4F2063746F00A6ED67 /* README_CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_CN.md; sourceTree = "<group>"; };
 		C75EE2B45BBE676FF9A2080D /* Pods-DZAnimatedGift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZAnimatedGift_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DZAnimatedGift_Example/Pods-DZAnimatedGift_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CB97CD94B3DEAED2FECD0349 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E4514C23CF6E6BD6EE13BF01 /* Pods-DZAnimatedGift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DZAnimatedGift_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DZAnimatedGift_Tests/Pods-DZAnimatedGift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				70A7A553498628F038B9C30A /* DZAnimatedGift.podspec */,
 				CB97CD94B3DEAED2FECD0349 /* README.md */,
+				B7683C4F2063746F00A6ED67 /* README_CN.md */,
 				5730CFCBB478CB5215492321 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				B7683C502063746F00A6ED67 /* README_CN.md in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
