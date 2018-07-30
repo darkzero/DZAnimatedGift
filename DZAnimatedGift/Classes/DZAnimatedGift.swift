@@ -7,10 +7,8 @@
 
 import UIKit
 
+// MARK: - easy to use default queue
 public class DZAnimatedGift: NSObject {
-    
-    // MARK: - easy to use
-    
     
     /// Add a new gift to default queue, it will be auto played.
     ///
@@ -34,22 +32,16 @@ public class DZAnimatedGift: NSObject {
         GiftQueueManager.shared.addGift(image: image, at: startPoint, relativePath: relativePath, duration: duration);
     }
     
-    //
-    public class func createQueue(name: String?=nil, inView: UIView?=nil) -> GiftQueue {
-        let queue = GiftQueueManager.shared.createQueue(name, inView: inView);
-        return queue;
-    }
-    
     public class func stopQueue(_ name: String) {
-        
+        //GiftQueueManager.shared.queue(name).stop();
     }
     
     public class func pauseQueue(_ name: String) {
-        
+        //GiftQueueManager.shared.queue(name).pause();
     }
     
     public class func startQueue(_ name: String) {
-        
+        //GiftQueueManager.shared.queue(name).start();
     }
     
     public class func stopAllQueue() {
@@ -57,10 +49,24 @@ public class DZAnimatedGift: NSObject {
     }
     
     public class func pauseAllQueue() {
-        
+        //GiftQueueManager.shared.pauseAllQueue();
     }
     
     public class func startAllQueue() {
-        
+        //GiftQueueManager.shared.startAllQueue();
+    }
+}
+
+// MARK: - make new queue
+extension DZAnimatedGift {
+    /// create a gift queue
+    ///
+    /// - Parameters:
+    ///   - name: queue name, if same as one is existed, will return that queue
+    ///   - inView: target view
+    /// - Returns: one queue
+    public class func createQueue(name: String?=nil, inView: UIView?=nil) -> GiftQueue {
+        let queue = GiftQueueManager.shared.createQueue(name, inView: inView);
+        return queue;
     }
 }

@@ -8,59 +8,90 @@
 import UIKit
 
 public class GiftQueue: NSObject {
-    @objc var giftList = NSMutableArray();
+    /// singleton instance
     static let shared = {GiftQueue()}();
     
+    // MARK: - properties
+    @objc var giftList = NSMutableArray();
     public var targetView: UIView?;
     var isRunning = false;
+    var count:Int { return self.giftList.count };
     
     override init() {
         super.init();
         self.addObserver(self, forKeyPath: "giftList", options: [.new, .old], context: nil);
     }
     
-    var count:Int {return self.giftList.count};
-    
     // MARK: - public functions
+    
+    /// add one gift to queue.
+    ///
+    /// - Parameter object: git object
     public func add(object: GiftObject) {
         self.mutableArrayValue(forKey: "giftList").insert(object, at: 0);
     }
     
+    /// stop the queue, clear all gift object.
     public func stop() {
         self.isRunning = false;
         self.removeAll();
     }
     
+    
+    /// pause the queue.
     public func pause() {
         self.isRunning = false;
     }
     
+    /// start play the queue.
     public func start() {
         self.isRunning = true;
         self.next();
     }
     
     // MARK: - internal functions
-    func add(image: String, at startPoint: CGPoint, absolutePath: [[CGPoint]], duration: CFTimeInterval) {
+    
+    /// add a gift object, move with absolute path.
+    ///
+    /// - Parameters:
+    ///   - image: image of the gift
+    ///   - startPoint: start poing
+    ///   - absolutePath: absolute path
+    ///   - duration: duration of animation
+    internal func add(image: String, at startPoint: CGPoint, absolutePath: [[CGPoint]], duration: CFTimeInterval) {
         self.mutableArrayValue(forKey: "giftList").insert(GiftObject(image: image, startPoint: startPoint, path: absolutePath, duration: duration, relative: false), at: 0);
     }
     
-    func add(image: String, at startPoint: CGPoint, relativePath: [[CGPoint]], duration: CFTimeInterval) {
+    /// add a gift object, move with relative path.
+    ///
+    /// - Parameters:
+    ///   - image: image of the gift
+    ///   - startPoint: start poing
+    ///   - absolutePath: relative path
+    ///   - duration: duration of animation
+    internal func add(image: String, at startPoint: CGPoint, relativePath: [[CGPoint]], duration: CFTimeInterval) {
         self.mutableArrayValue(forKey: "giftList").insert(GiftObject(image: image, startPoint: startPoint, path: relativePath, duration: duration, relative: true), at: 0);
     }
     
-    func removeLast() {
+    
+    /// remove the last gift in list.
+    internal func removeLast() {
         self.giftList.removeLastObject();
     }
     
-    func remove(at index: Int) {
+    /// remove the gift at index.
+    ///
+    /// - Parameter index: index of object
+    internal func remove(at index: Int) {
         self.giftList.removeObject(at: index);
     }
     
-    func removeAll() {
+    /// remove all gift.
+    internal func removeAll() {
         self.giftList.removeAllObjects();
     }
     
+    /// play next gift.
     @objc func next() {
         guard self.count > 0 else {
             self.isRunning = false;
@@ -75,6 +106,7 @@ public class GiftQueue: NSObject {
         }
     }
     
+    /// KVO
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "giftList" {
             if !self.isRunning {

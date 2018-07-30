@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Gift Animation
 class GiftAnimation: NSObject {
     static let shared: GiftAnimation = {GiftAnimation()}();
     

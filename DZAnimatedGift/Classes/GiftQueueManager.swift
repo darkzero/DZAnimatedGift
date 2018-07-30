@@ -25,27 +25,33 @@ class GiftQueueManager: NSObject {
         //self.defaultQueue.addObserver(self, forKeyPath: "giftList", options: [.new, .old], context: nil);
     }
     
-    func createQueue(_ name: String? = nil, inView view: UIView? = nil) -> GiftQueue {
-        guard let queueName = name else {
+    /// create a new queue
+    ///
+    /// - Parameters:
+    ///   - name: queue name
+    ///   - view: target view
+    /// - Returns: one queue
+    internal func createQueue(_ name: String? = nil, inView view: UIView? = nil) -> GiftQueue {
+        // name is nil
+        guard let queueName = name, name != "" else {
             return self.defaultQueue;
         }
-        var queue:GiftQueue;
-        if tempQueues[queueName] == nil {
-            queue = GiftQueue();
+        // already exist?
+        guard let existQueue = tempQueues[queueName] else {
+            let queue = GiftQueue();
             queue.targetView = view;
             self.tempQueues[queueName] = queue;
+            return queue;
         }
-        else {
-            queue = self.tempQueues[queueName]!;
-        }
-        return queue;
+        return existQueue;
     }
 
-    func addGift(image: String, at startPoint: CGPoint, absolutePath: [[CGPoint]], duration: CFTimeInterval, toQueue queueName: String? = nil, in view: UIView? = nil) {
+    internal func addGift(image: String, at startPoint: CGPoint, absolutePath: [[CGPoint]], duration: CFTimeInterval, toQueue queueName: String? = nil, in view: UIView? = nil) {
         if queueName == nil || queueName == "" {
             self.defaultQueue.add(image: image, at: startPoint, absolutePath: absolutePath, duration: duration);
         }
         else {
+            self.createQueue(queueName, inView: view).add(image: image, at: startPoint, absolutePath: absolutePath, duration: duration);
             if tempQueues[queueName!] == nil {
                 tempQueues[queueName!] = GiftQueue();
             }
@@ -53,7 +59,7 @@ class GiftQueueManager: NSObject {
         }
     }
     
-    func addGift(image: String, at startPoint: CGPoint, relativePath: [[CGPoint]], duration: CFTimeInterval, toQueue queueName: String? = nil, in view: UIView? = nil) {
+    internal func addGift(image: String, at startPoint: CGPoint, relativePath: [[CGPoint]], duration: CFTimeInterval, toQueue queueName: String? = nil, in view: UIView? = nil) {
         if queueName == nil || queueName == "" {
             self.defaultQueue.add(image: image, at: startPoint, relativePath: relativePath, duration: duration);
         }
@@ -66,11 +72,12 @@ class GiftQueueManager: NSObject {
         }
     }
     
+    /// stop all gift queue.
     func stopAllQueue() {
         self.defaultQueue.stop();
-        for (_, queue) in tempQueues {
+        for (_, queue) in self.tempQueues {
             queue.stop();
         }
-        tempQueues.removeAll();
+        self.tempQueues.removeAll();
     }
 }

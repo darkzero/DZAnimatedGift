@@ -14,6 +14,7 @@
 		51E32B74C32EEFA0F62C8E98CCBF3160 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		A1F8C4D4E9FF03E4F0F10EA9D5DE3518 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		A52305E05CA4D70CFAA36E3B883DE797 /* DZAnimatedGift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E66B789D25362EC9363C8FE2BD326641 /* DZAnimatedGift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B707582220E6415B004253C8 /* PathPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B707582120E6415B004253C8 /* PathPoint.swift */; };
 		B7683C59206395E100A6ED67 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7683C52206395E100A6ED67 /* ImageCache.swift */; };
 		B7683C5A206395E100A6ED67 /* GiftAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7683C53206395E100A6ED67 /* GiftAnimation.swift */; };
 		B7683C5B206395E100A6ED67 /* GiftQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7683C55206395E100A6ED67 /* GiftQueue.swift */; };
@@ -55,6 +56,7 @@
 		A54CEFA2D46AA51D8BADA69D3E4EA884 /* Pods-DZAnimatedGift_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DZAnimatedGift_Tests-dummy.m"; sourceTree = "<group>"; };
 		A8160B116465C14CD3F3D3F32F9C858B /* DZAnimatedGift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = DZAnimatedGift.modulemap; sourceTree = "<group>"; };
 		AE8579AC502D8A49B89E831640228A2F /* Pods-DZAnimatedGift_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-DZAnimatedGift_Tests.modulemap"; sourceTree = "<group>"; };
+		B707582120E6415B004253C8 /* PathPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathPoint.swift; sourceTree = "<group>"; };
 		B7683C52206395E100A6ED67 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		B7683C53206395E100A6ED67 /* GiftAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftAnimation.swift; sourceTree = "<group>"; };
 		B7683C54206395E100A6ED67 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				B7683C56206395E100A6ED67 /* GiftObject.swift */,
 				B7683C57206395E100A6ED67 /* GiftQueueManager.swift */,
 				B7683C58206395E100A6ED67 /* DZAnimatedGift.swift */,
+				B707582120E6415B004253C8 /* PathPoint.swift */,
 			);
 			name = Classes;
 			path = DZAnimatedGift/Classes;
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F39B7F9CD27D9DCE29C4DE87FF33E349 /* DZAnimatedGift-dummy.m in Sources */,
+				B707582220E6415B004253C8 /* PathPoint.swift in Sources */,
 				B7683C5C206395E100A6ED67 /* GiftObject.swift in Sources */,
 				B7683C5D206395E100A6ED67 /* GiftQueueManager.swift in Sources */,
 				B7683C59206395E100A6ED67 /* ImageCache.swift in Sources */,
