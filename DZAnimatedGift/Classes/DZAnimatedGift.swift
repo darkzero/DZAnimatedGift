@@ -17,9 +17,14 @@ public class DZAnimatedGift: NSObject {
     ///   - at: the start point of the gift
     ///   - path: the path (Absolute position on screen)
     ///   - duration: duration
+    @available(iOS, introduced: 9.3, message: "Please use addGift(image: String, at startPoint: CGPoint, absolutePath: [PathPoint], duration: CFTimeInterval)")
     public class func addGift(image: String, at startPoint: CGPoint, absolutePath: [[CGPoint]], duration: CFTimeInterval) {
         GiftQueueManager.shared.addGift(image: image, at: startPoint, absolutePath: absolutePath, duration: duration);
     }
+    
+//    public class func addGift(image: String, at startPoint: CGPoint, absolutePath: [PathPoint], duration: CFTimeInterval) {
+//        GiftQueueManager.shared.addGift(image: image, at: startPoint, absolutePath: absolutePath, duration: duration);
+//    }
     
     /// Add a new gift to default queue, it will be auto played.
     ///

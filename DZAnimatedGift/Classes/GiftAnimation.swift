@@ -34,26 +34,22 @@ class GiftAnimation: NSObject {
             giftLayer.removeFromSuperlayer();
         }
         
-        let mvAnim = CAKeyframeAnimation(keyPath: "position"); //)  animationWithKeyPath:@"position"];
+        let mvAnim = CAKeyframeAnimation(keyPath: "position")
         mvAnim.path = movePath.cgPath;
         mvAnim.repeatCount = 1;
         mvAnim.duration = gift.duration;
         
-        let alphaAnim = CABasicAnimation(keyPath: "opacity");//) animationWithKeyPath:@"opacity"];
-        alphaAnim.fromValue = NSNumber(value: 1.0);//[NSNumber numberWithFloat:1.0];
-        alphaAnim.toValue   = NSNumber(value: 0.0);//[NSNumber numberWithFloat:0.0];
-        //alphaAnim.beginTime = CACurrentMediaTime() + 1.1;
+        let alphaAnim = CABasicAnimation(keyPath: "opacity")
+        alphaAnim.fromValue = NSNumber(value: 1.0)
+        alphaAnim.toValue   = NSNumber(value: 0.0)
         alphaAnim.duration = gift.duration;
         
         let anims = CAAnimationGroup();
         anims.duration = gift.duration;
-        //anims.repeatCount = 3;
-        //anims.autoreverses = YES;
-        anims.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)//[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        anims.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         anims.animations = [mvAnim, alphaAnim];
         
         //anims.delegate = self;
-        
         giftLayer.frame = CGRect(origin: CGPoint.zero, size: gift.size);
         giftLayer.opacity = 0;
         targetView!.layer.addSublayer(giftLayer);

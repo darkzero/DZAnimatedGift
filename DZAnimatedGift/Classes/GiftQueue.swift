@@ -7,9 +7,13 @@
 
 import UIKit
 
+/// the keyPath of default array
+private let kGiftListKeyPath = "giftList"
+
+/// GiftQueue
 public class GiftQueue: NSObject {
     /// singleton instance
-    static let shared = {GiftQueue()}();
+    static let `default` = {GiftQueue()}();
     
     // MARK: - properties
     @objc var giftList = NSMutableArray();
@@ -19,16 +23,17 @@ public class GiftQueue: NSObject {
     
     override init() {
         super.init();
-        self.addObserver(self, forKeyPath: "giftList", options: [.new, .old], context: nil);
+        self.addObserver(self, forKeyPath: kGiftListKeyPath, options: [.new, .old], context: nil);
     }
-    
-    // MARK: - public functions
-    
+}
+
+// MARK: - public functions
+extension GiftQueue {
     /// add one gift to queue.
     ///
     /// - Parameter object: git object
     public func add(object: GiftObject) {
-        self.mutableArrayValue(forKey: "giftList").insert(object, at: 0);
+        self.mutableArrayValue(forKey: kGiftListKeyPath).insert(object, at: 0);
     }
     
     /// stop the queue, clear all gift object.
@@ -49,8 +54,10 @@ public class GiftQueue: NSObject {
         self.next();
     }
     
-    // MARK: - internal functions
-    
+}
+
+// MARK: - internal functions
+extension GiftQueue {
     /// add a gift object, move with absolute path.
     ///
     /// - Parameters:
@@ -59,7 +66,7 @@ public class GiftQueue: NSObject {
     ///   - absolutePath: absolute path
     ///   - duration: duration of animation
     internal func add(image: String, at startPoint: CGPoint, absolutePath: [[CGPoint]], duration: CFTimeInterval) {
-        self.mutableArrayValue(forKey: "giftList").insert(GiftObject(image: image, startPoint: startPoint, path: absolutePath, duration: duration, relative: false), at: 0);
+        self.mutableArrayValue(forKey: kGiftListKeyPath).insert(GiftObject(image: image, startPoint: startPoint, path: absolutePath, duration: duration, relative: false), at: 0);
     }
     
     /// add a gift object, move with relative path.
@@ -70,7 +77,14 @@ public class GiftQueue: NSObject {
     ///   - absolutePath: relative path
     ///   - duration: duration of animation
     internal func add(image: String, at startPoint: CGPoint, relativePath: [[CGPoint]], duration: CFTimeInterval) {
-        self.mutableArrayValue(forKey: "giftList").insert(GiftObject(image: image, startPoint: startPoint, path: relativePath, duration: duration, relative: true), at: 0);
+        self.mutableArrayValue(forKey: kGiftListKeyPath).insert(GiftObject(image: image, startPoint: startPoint, path: relativePath, duration: duration, relative: true), at: 0);
+    }
+    
+    /// add a gift object
+    ///
+    /// - Parameter gift: GiftObject
+    internal func add(_ gift: GiftObject) {
+        self.mutableArrayValue(forKey: kGiftListKeyPath).insert(gift, at: 0)
     }
     
     
@@ -92,7 +106,7 @@ public class GiftQueue: NSObject {
     }
     
     /// play next gift.
-    @objc func next() {
+    @objc internal func next() {
         guard self.count > 0 else {
             self.isRunning = false;
             return
@@ -105,10 +119,12 @@ public class GiftQueue: NSObject {
             self.perform(#selector(next), with: nil, afterDelay: 0.1);
         }
     }
-    
-    /// KVO
+}
+
+// MARK: - KVO
+extension GiftQueue {
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "giftList" {
+        if keyPath == kGiftListKeyPath {
             if !self.isRunning {
                 self.next();
             }

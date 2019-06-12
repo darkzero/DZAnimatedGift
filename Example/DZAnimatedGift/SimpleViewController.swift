@@ -48,10 +48,14 @@ class SimpleViewController: UIViewController {
             [CGPoint(x:+10, y:-400)]
         ];
         
+        let point = PathPoint(CGPoint(x:-10, y:-200), control: CGPoint(x:-60, y:-100))
+        let point2 = PathPoint(CGPoint(x:+10, y:-400))
+        
         let heart = GiftObject(image: "heart_pink",
                                startPoint: startPoint,
                                path: points,
-                               duration: drand48()+2.0);
+                               duration: drand48()+1.0,
+                               relative: true);
         let queue = DZAnimatedGift.createQueue(name: "fullScreenHeart", inView: self.view);
         queue.add(object: heart);
     }
