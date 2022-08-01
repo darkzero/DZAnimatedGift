@@ -42,7 +42,6 @@ extension GiftQueue {
         self.removeAll();
     }
     
-    
     /// pause the queue.
     public func pause() {
         self.isRunning = false;
@@ -65,7 +64,7 @@ extension GiftQueue {
     ///   - startPoint: start poing
     ///   - absolutePath: absolute path
     ///   - duration: duration of animation
-    internal func add(image: String, at startPoint: CGPoint, absolutePath: [[CGPoint]], duration: CFTimeInterval) {
+    func add(image: String, at startPoint: CGPoint, absolutePath: [PathNode], duration: CFTimeInterval) {
         self.mutableArrayValue(forKey: kGiftListKeyPath).insert(GiftObject(image: image, startPoint: startPoint, path: absolutePath, duration: duration, relative: false), at: 0);
     }
     
@@ -76,42 +75,38 @@ extension GiftQueue {
     ///   - startPoint: start poing
     ///   - absolutePath: relative path
     ///   - duration: duration of animation
-    internal func add(image: String, at startPoint: CGPoint, relativePath: [[CGPoint]], duration: CFTimeInterval) {
+    func add(image: String, at startPoint: CGPoint, relativePath: [PathNode], duration: CFTimeInterval) {
         self.mutableArrayValue(forKey: kGiftListKeyPath).insert(GiftObject(image: image, startPoint: startPoint, path: relativePath, duration: duration, relative: true), at: 0);
     }
     
     /// add a gift object
-    ///
     /// - Parameter gift: GiftObject
-    internal func add(_ gift: GiftObject) {
+    func add(_ gift: GiftObject) {
         self.mutableArrayValue(forKey: kGiftListKeyPath).insert(gift, at: 0)
     }
     
-    
     /// remove the last gift in list.
-    internal func removeLast() {
+    func removeLast() {
         self.giftList.removeLastObject();
     }
     
     /// remove the gift at index.
-    ///
     /// - Parameter index: index of object
-    internal func remove(at index: Int) {
+    func remove(at index: Int) {
         self.giftList.removeObject(at: index);
     }
     
     /// remove all gift.
-    internal func removeAll() {
+    func removeAll() {
         self.giftList.removeAllObjects();
     }
     
     /// play next gift.
-    @objc internal func next() {
+    @objc func next() {
         guard self.count > 0 else {
             self.isRunning = false;
             return
         }
-        //print("[AnimatedGift]the count of queue is \(self.count)");
         self.isRunning = true;
         if let gift = self.giftList.lastObject as? GiftObject {
             GiftAnimation.shared.play(gift, inView: self.targetView);

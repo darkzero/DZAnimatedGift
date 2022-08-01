@@ -25,8 +25,8 @@ class ComplexViewController: UIViewController {
         for touch in touches {
             let startPoint = touch.location(in: self.view);
             let points = [
-                [CGPoint(x:-10, y:-200), CGPoint(x:-60, y:-100)],
-                [CGPoint(x:+10, y:-400)]
+                PathNode(point: CGPoint(x:-10, y:-200), controlPoint: CGPoint(x:-60, y:-100)),
+                PathNode(point: CGPoint(x:+10, y:-400))
             ];
             let queue = DZAnimatedGift.createQueue(name: "touch\(i)", inView: self.view);
             i += 1;
