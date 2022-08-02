@@ -1,8 +1,8 @@
 {
   "name": "DZAnimatedGift",
   "version": "0.1.0",
-  "summary": "A short description of DZAnimatedGift.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Show gift animated on screen.",
+  "description": "* 0.1.0\nRelease 0.1.0, please see readme",
   "homepage": "https://github.com/darkzero/DZAnimatedGift",
   "license": {
     "type": "MIT",
@@ -16,7 +16,7 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.3"
   },
   "source_files": "DZAnimatedGift/Classes/**/*"
 }
