@@ -48,19 +48,16 @@ public class DZAnimatedGift: NSObject {
 }
 
 extension DZAnimatedGift {
-    public class func stopQueue(_ name: String) {
-        //GiftQueueManager.shared.stopQueue(name)
-        GiftQueueManager.shared.queue(name).stop()
+    public class func stopQueue(_ name: String? = nil) {
+        GiftQueueManager.shared.stopQueue(name)
     }
     
-    public class func pauseQueue(_ name: String) {
-        //GiftQueueManager.shared.queue(name).pause();
-        //GiftQueueManager.shared.pauseQueue(name)
-        GiftQueueManager.shared.queue(name).pause()
+    public class func pauseQueue(_ name: String? = nil) {
+        GiftQueueManager.shared.pauseQueue(name)
     }
     
-    public class func startQueue(_ name: String) {
-        GiftQueueManager.shared.queue(name).start()
+    public class func startQueue(_ name: String? = nil) {
+        GiftQueueManager.shared.startQueue(name)
     }
     
     // MARK: - All

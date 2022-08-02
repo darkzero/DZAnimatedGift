@@ -113,33 +113,32 @@ extension GiftQueueManager {
     /// Get queue with name
     /// - Parameter name: Queue name
     /// - Returns: GiftQueue ( return default queue if name is nil )
-    func queue(_ name: String?) -> GiftQueue {
+    func queue(_ name: String? = nil) -> GiftQueue {
         if let n = name, let queue = queueDictionary[n] {
             return queue
         }
         return self.defaultQueue
     }
     
+    /// Start gift queue
+    /// - Parameter name: queue name
+    func startQueue(_ name: String? = nil) {
+        self.queue(name).start()
+    }
+    
     /// Pause gift queue.
     /// - Parameter name: queue name
-    func pauseQueue(_ name: String) {
+    func pauseQueue(_ name: String? = nil) {
         self.queue(name).pause()
-        if let queue = self.queueDictionary[name] {
-            queue.pause()
-        }
     }
     
     /// Stop gift queue.
     /// - Parameter name: queue name
-    func stopQueue(_ name: String) {
-        if let queue = self.queueDictionary[name] {
-            queue.stop()
-            self.queueDictionary.removeValue(forKey: name)
+    func stopQueue(_ name: String? = nil) {
+        self.queue(name).stop()
+        if let n = name {
+            self.queueDictionary.removeValue(forKey: n)
         }
-    }
-    
-    func startQueue(_ name: String) {
-        self.queue(name).start()
     }
     
     // MARK: - For all queue
