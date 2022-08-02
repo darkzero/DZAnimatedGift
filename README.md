@@ -26,15 +26,15 @@ pod 'DZAnimatedGift'
 
 ## Sample
 
-#### at first, Import framework
+### at first, Import framework
 
 ```Swift
 import DZAnimatedGift
 ```
 
-#### Simple
+### Simple
 
-Add one image to screen
+Add one image to screen, use default queue
 
 ```Swift
 DZAnimatedGift.addGift(image: "heart_pink",
@@ -52,25 +52,36 @@ DZAnimatedGift.addGift(image: "heart_pink",
                        duration: drand48()+2.0);
 ```
 
-About the Parameter
+or
+
+```Swift
+DZAnimatedGift.addGift(image: String, 
+                       at: CGPoint, 
+                       path: [PathNode], 
+                       type: .relative/.absolute, 
+                       duration: drand48()+2.0)
+```
+
+### About the Parameter
 
 ```Swift
 image: String               // the image of gift
 at: CGPoint                 // start point of the animation
-absolutePath: [[CGPoint]]   // path of the animation(absolute in view)
-relativePath: [[CGPoint]]   // path of the animation(relative of the start point)
-                            // the [[CGPoint]] should be like
-                            // [[endPoint, ctrlPoint], [endPoint, ctrlPoint], ...]
-                            // or only endPoint like
-                            // [[endPoint], [endPoint], ...]
-                            // or mix
-                            // [[endPoint, ctrlPoint], [endPoint], ...]
+absolutePath: [PathNode]    // path of the animation(absolute in view)
+relativePath: [PathNode]    // path of the animation(relative of the start point)
 duration: CGFloat           // duration of the animation
+```
+
+**struct PathNode**
+```Swift
+PathNode
+    var point: CGPoint!         // point
+    var controlPoint: CGPoint?  // control point
 ```
 
 ![Simple](gif/simple.gif)
 
-#### Complex
+### Complex
 
 ```Swift
 let queue = DZAnimatedGift.createQueue(name: "QueueName", inView: self.view);
@@ -90,7 +101,9 @@ queue.add(object: g);
 ## Author
 
 darkzero, darkzero_mk2@hotmail.com
-iOS developer, working in Tokyo
+iOS developer, working in Tokyo/Shanghai
+
+[darkzero.me](https://darkzero.me)
 
 ## License
 
